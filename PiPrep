@@ -1,0 +1,103 @@
+#started with noobs
+#https://www.raspberrypi.org/downloads/noobs/
+#2.0.0
+
+#########################################################
+# clone the repository into pi
+# change directory
+# give execute rights over this file
+# run this file
+###############################################################
+
+sudo get-apt update # updates the available libraries
+sudo apt-get upgrade # upgrades all the installed libraries
+sudo rpi-update # this uodates the pi firmware
+sudo reboot # seems to require this
+
+
+
+# some of the python libraries needed cython and this needed the python-dev packages
+sudo apt-get install python-dev
+
+# best practice is to use virtual environments (first go I did not use it!)
+
+sudo pip install virtualenv
+
+# establish the Virtual Environment folder
+mkdir -p Python_Venvs # -p checks if it exists if nit it creates it
+cd Python_Venvs
+virtualenv JBEnv
+. JBEnv/bin/activate
+
+# sometimes pip worked and sometimes easy_install worked
+sudo pip install Cython
+sudo pip install flask
+sudo pip install simplejson
+sudo pip install urllib
+sudo pip install json
+sudo pip install pandas
+
+#import csv
+#import time
+sudo pip install plotly
+sudo pip install pandas
+sudo pip install datetime
+sudo pip install pytimeparse
+#from array import array
+#import operator
+sudo pip install gpxpy
+sudo pip install folium
+sudo pip install branca
+sudo pip install jinja2
+
+##########################################################
+#reading about flask
+#http://raspberrypituts.com/flask-web-application-rasberry-pi/
+########################################################################
+sudo apt-get install python-virtualenv -y
+sudo pip install --upgrade pip
+sudo pip install Flask
+
+#####
+# https://www.raspberrypi.org/learning/python-web-server-with-flask/worksheet/
+
+from flask import Flask
+from flask import render_template
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    #return 'Hello world'
+    return render_template('index.html')
+
+@app.route('/cakes')
+def cakes():
+    return 'Yummy cakes!'
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')
+
+#######################################
+
+sudo apt-get install python3-flask
+
+http://0.0.0.0:5000/
+
+# the initial cloning of the code
+
+sudo git clone https://github.com/andrewcgaitskell/JBProject.git
+
+# pushing up changes of the code made on the Pi
+
+git add JBCode.py ## if you have created a new file
+git commit -m "comment about the commits"
+sudo git push -u origin master
+
+# pulling down changes of the code made in GitHub
+sudo git pull -u origin master
+
+# ultimately the project will appear at the following local URL
+http://127.0.0.1:9019/
+
+My pi is : 192.168.0.5
+

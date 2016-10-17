@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+   
+<div class="container-fluid">
+	  
+	<div class="row" style-"border: 1px solid red">
+
+	  <div class="col-xs-7">
+	        <iframe src="/map/" height="1000px" width="100%" style="border:none;"></iframe>
+	  </div>
+
+
+	  <div class="col-xs-5">
+
+	  	<h2>Current route information:</h2>
+
+	  	<p> {{ a }} </p>
+
+	  	<hr />
+
+		<h2>Try a new route:</h2>
+
+		<div class="container-fluid">
+		  <form method="post" action="{{ url_for('hello') }}">
+		    <div class="form-group row">
+		      <label for="start_location" class="col-form-label">Choose a start location</label>
+		      <input type="text" class="form-control" name="start_location" placeholder="Start location">
+		    </div>
+		    <div class="form-group row">
+		      <label for="Destination" class="col-form-label">Choose a destination</label>
+		      <input type="text" class="form-control" name="destination" placeholder="Destination">
+		    </div>
+		    <div class="form-group row">
+		        <button type="submit" class="btn btn-primary">Calculate!</button>
+		    </div>
+		  </form>
+		</div>
+
+	  </div>
+
+	  <div class="col-xs-4">
+	  	<iframe width="760" height="600" frameborder="0" scrolling="no" src="https://plot.ly/~Jonathanabrown/6.embed"></iframe>
+	  </div>
+
+	</div>
+
+
+
+		
+</div>
+
+
+
+{% endblock content %}
